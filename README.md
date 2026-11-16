@@ -475,3 +475,32 @@ synthetic amounts, a bounded seeded source/destination pool, aggregated
 parallel channels, and simplified protocols are used. See
 `final_results/docs/METHODS_AND_LIMITATIONS.md` and
 `final_results/raw/metadata.json` before interpreting or sharing the results.
+
+### Overall proxy-model results
+
+The table below reports the arithmetic mean across the nine workload/capacity
+settings (3 transaction counts × 3 capacity multipliers) of the per-setting
+20-run averages. These values summarize this repository's **proxy model**;
+they are not the Auroch paper's reported results.
+
+| Routing method used in this evaluation | Success ratio | Success volume | Routing cost* |
+|---|---:|---:|---:|
+| Auroch-inspired multipath proxy | 56.33% | 41.69% | 6.573 |
+| Modified Dijkstra proxy | 52.69% | 37.28% | 6.722 |
+| Spider-inspired probed multipath proxy | 52.82% | 37.46% | 6.735 |
+| SpeedyMurmurs-inspired landmark proxy | 54.22% | 39.70% | 15.246 |
+
+\* Routing cost is total modeled fees divided by successfully delivered
+satoshis. Fee units and payment amounts follow the assumptions documented in
+`final_results/docs/METHODS_AND_LIMITATIONS.md`.
+
+The complete results include **720 simulations** and 1.26 million attempted
+payments per method. View the [success ratio](final_results/plots/comparison/success_ratio.png),
+[success volume](final_results/plots/comparison/success_volume.png),
+[routing cost](final_results/plots/comparison/routing_cost.png),
+[routing time](final_results/plots/comparison/mean_route_seconds.png),
+[hop count](final_results/plots/comparison/mean_hops.png), and
+[paths per payment](final_results/plots/comparison/mean_paths.png) figures.
+All per-setting means and standard deviations are in
+[`final_results/raw/averaged.csv`](final_results/raw/averaged.csv); the
+per-run records and generated workload are alongside it.
