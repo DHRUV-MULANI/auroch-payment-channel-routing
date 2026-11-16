@@ -1,0 +1,39 @@
+{
+  "experiment": "full_parameter_grid_assumption_based_proxy_evaluation",
+  "input_snapshot": "lngraph_2021_11_27__00_00.json",
+  "input_nodes": 18310,
+  "input_channels": 80743,
+  "largest_component_nodes": 18110,
+  "transaction_counts": [
+    5000,
+    7000,
+    9000
+  ],
+  "capacity_scales": [
+    30,
+    50,
+    70
+  ],
+  "runs_per_configuration": 20,
+  "configuration_count": 9,
+  "simulations_including_protocols": 720,
+  "total_attempts_per_protocol": 1260000,
+  "od_pair_pool": 128,
+  "seed": 20261116,
+  "initial_liquidity": "50:50 directional balance assumption",
+  "payment_amounts": "synthetic log-uniform 1,000 to 1,000,000 sat; Bitcoin trace unavailable",
+  "source_destination": "random draws with replacement from a seeded pool of OD pairs in the largest component",
+  "channel_policies": "ignored; current baseline implementations do not uniformly honor policy fields",
+  "parallel_channels": "aggregated by directed endpoint pair for runtime tractability",
+  "fee_model": "base fee 1 sat per hop plus seeded integer rate fee in [0,10] multiplied by amount, following the paper equation's form; units remain an interpretation assumption",
+  "routing_time_scope": "mean route time includes cached path selection and allocation only; excludes one-time graph/path-cache construction",
+  "protocol_definitions": {
+    "Auroch-inspired multipath": "greedy capacity split across up to 3 cached low-weight simple paths; no auction/bidding/Eq.6 LP",
+    "Modified Dijkstra": "single cached fee-weighted shortest path; fails if path bottleneck is insufficient",
+    "Spider-inspired": "greedy capacity split across up to 4 cached edge-disjoint paths; probe-inspired proxy, not Spider implementation",
+    "SpeedyMurmurs-inspired": "single route through one of 3 fixed high-degree landmark shortest-path trees; not the original embedding protocol"
+  },
+  "paper_faithful_reproduction": false,
+  "elapsed_seconds": 175.15906146100315,
+  "caveat": "Full parameter grid and 20 repetitions were run, but missing trace/protocol implementations require these results to be reported as assumption-based proxy evaluation, not as reproducing the paper's claims."
+}

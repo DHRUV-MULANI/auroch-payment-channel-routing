@@ -1,0 +1,19 @@
+{
+  "experiment": "exploratory_proxy_pilot",
+  "input": "lngraph_2021_11_27__00_00.json",
+  "transactions_per_run": 50,
+  "repetitions": 3,
+  "capacity_scales": [
+    30,
+    50,
+    70
+  ],
+  "base_seed": 20261116,
+  "elapsed_seconds": 28.612935279998055,
+  "liquidity": "50:50 initial balance; balances update after successful payments",
+  "amounts": "synthetic log-uniform 1,000 to 1,000,000 sats; not the paper's Bitcoin trace",
+  "protocols": "Auroch-like greedy three-path proxy and fee-weighted single-path Dijkstra proxy; not faithful Auroch/Spider/SpeedyMurmurs implementations",
+  "policy_handling": "channel policies are ignored in this quick pilot",
+  "metrics": "paper success ratio, success volume, routing cost plus exploratory route time and hop count",
+  "paper_comparison_claim": false
+}

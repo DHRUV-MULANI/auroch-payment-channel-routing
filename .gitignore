@@ -10,4 +10,11 @@ Thumbs.db
 .env
 *.pem
 *.key
+
+# Large local research inputs and generated bundles are documented but not committed.
+/lngraph_2021_11_27__00_00.json
+/lngraph_2021_11_27__00_00.json.zst
+/results.zip
+/final_results.zip
+__pycache__/
 data/

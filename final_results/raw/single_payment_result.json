@@ -1,0 +1,23 @@
+{
+  "experiment_type": "single_payment_end_to_end_smoke_run",
+  "date": "2026-11-14",
+  "input_snapshot": "lngraph_2021_11_27__00_00.json",
+  "graph_nodes": 18310,
+  "graph_channels": 80743,
+  "initial_liquidity_assumption": "50:50 split per channel",
+  "random_seed": null,
+  "rounds": 2,
+  "auc_messages": 6,
+  "bid_messages": 6,
+  "allocation_records": 6,
+  "completed_routes": 3,
+  "requested_payment_sats": 100000,
+  "route_allocations_sats": [50000, 50000, 0],
+  "total_forwarding_cost_reported_by_code": 1328450.5556497052,
+  "payment_execution": "success",
+  "final_liquidity_audit": "pass",
+  "paper_metric_success_ratio": 1.0,
+  "paper_metric_success_volume": 1.0,
+  "paper_metric_routing_cost": 13.284505556497052,
+  "interpretation": "One unseeded end-to-end smoke run only. Not a paper-scale experiment; fees and route selection depend on the current prototype and random tau_fee."
+}

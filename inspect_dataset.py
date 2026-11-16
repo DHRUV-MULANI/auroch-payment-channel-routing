@@ -29,7 +29,11 @@
 
 import json
 
-file_path = "data/lngraph_2021_11_27__00_00.json"
+from pathlib import Path
+
+file_path = Path("lngraph_2021_11_27__00_00.json")
+if not file_path.exists():
+    file_path = Path("data/lngraph_2021_11_27__00_00.json")
 
 with open(file_path, "r", encoding="utf-8") as file:
     data = json.load(file)

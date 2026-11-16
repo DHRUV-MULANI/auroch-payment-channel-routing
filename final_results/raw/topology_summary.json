@@ -1,0 +1,26 @@
+{
+  "input": "lngraph_2021_11_27__00_00.json",
+  "nodes": 18310,
+  "channels": 80743,
+  "connected_components": 95,
+  "largest_component_nodes": 18110,
+  "degree": {
+    "mean": 8.819552157291097,
+    "median": 2.0,
+    "max": 2841
+  },
+  "capacity_sats": {
+    "min": 1050,
+    "p25": 200000.0,
+    "median": 1000000.0,
+    "mean": 4049295.42090336,
+    "p75": 3000000.0,
+    "max": 1400000000
+  },
+  "policy_presence": {
+    "both_present": 75606,
+    "one_present": 1282,
+    "both_missing": 3855
+  },
+  "caveat": "Descriptive topology statistics only; these do not constitute routing protocol experiment results."
+}

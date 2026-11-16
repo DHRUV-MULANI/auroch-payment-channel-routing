@@ -1,5 +1,7 @@
 # Auroch: Auction-Based Multipath Routing for Payment Channel Networks
 
+> **Start here:** see [PROJECT_INDEX.md](PROJECT_INDEX.md) for the file map and [docs/EXPERIMENT_PLAN.md](docs/EXPERIMENT_PLAN.md) for the paper evaluation, available datasets, and reproducibility limits. The present repository has a single-payment Auroch prototype; its full paper comparison is not yet implemented.
+
 ## Project overview
 
 This project implements the core Auroch routing workflow for
@@ -438,3 +440,38 @@ Preserve this baseline before major changes. Complete the
 liquidity-method investigation and original paper experimental
 evaluation first. Implement dynamic `tau_fee` only after the baseline
 results and graphs are ready.
+
+## 11. Current workspace documentation and topology report
+
+Folder documentation is provided in `data/`, `docs/`, `scripts/`, and
+`results/` (including each results subfolder). The local topology report
+is generated with `python scripts/topology_report.py`. It writes
+descriptive snapshot figures to `results/plots/topology/` and
+`results/raw/topology_summary.json`. These figures describe the input
+network; they are not the paper's protocol-comparison figures. The local
+snapshot has 18,310 nodes and 80,743 channels, with a largest connected
+component of 18,110 nodes. The paper reports 18,331 nodes and 80,918
+channels. A direct four-protocol comparison still needs the Bitcoin
+payment-volume trace and faithful Spider and SpeedyMurmurs implementations.
+
+## 12. Exploratory multi-transaction pilot
+
+Run `python scripts/quick_eval.py` to reproduce the small pilot in
+`results/quick_pilot/`. It uses 50 transactions per run, three repetitions,
+and capacity multipliers 30×/50×/70×. It compares a greedy multipath proxy
+with a fee-weighted Dijkstra proxy and reports success ratio, success volume,
+routing cost, route time, and hop count. Amounts are synthetic and policies
+are ignored; these results are pipeline checks, not paper results. See the
+pilot's `metadata.json` before using or sharing its plots.
+
+## 13. Full parameter-grid output bundle
+
+The 5,000 / 7,000 / 9,000 × 30 / 50 / 70 × 20-run grid has been run
+using four clearly labeled protocol proxies. The complete bundle is in
+`final_results/`: raw per-run data, workload manifest, averages, six
+comparison metrics, topology plots, and interpretation notes. The complete
+parameter grid is executed, but the comparison is **not paper-faithful**:
+synthetic amounts, a bounded seeded source/destination pool, aggregated
+parallel channels, and simplified protocols are used. See
+`final_results/docs/METHODS_AND_LIMITATIONS.md` and
+`final_results/raw/metadata.json` before interpreting or sharing the results.

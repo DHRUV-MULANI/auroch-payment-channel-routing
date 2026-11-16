@@ -1,5 +1,6 @@
 import copy
 import json
+from pathlib import Path
 import networkx as nx
 
 from payment import make_payment
@@ -273,7 +274,11 @@ def generate_auc_messages(graph, rreq_result, rrep_messages):
 # =====================================================
 
 def main():
-    file_path = "data/lngraph_2021_11_27__00_00.json"
+    # The handover workspace keeps the snapshot in the repository root;
+    # retain support for the documented data/ layout as well.
+    root_snapshot = Path("lngraph_2021_11_27__00_00.json")
+    data_snapshot = Path("data/lngraph_2021_11_27__00_00.json")
+    file_path = root_snapshot if root_snapshot.exists() else data_snapshot
 
     # -------------------------------------------------
     # Build graph
